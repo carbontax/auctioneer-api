@@ -1,0 +1,27 @@
+extends layout
+
+block content
+    form(data-bind="submit: addUser")
+        div
+            label Username
+            input(data-bind="value: newUsername")
+        div
+            label Email
+            input(data-bind="value: newEmail")
+        div
+            input(type="submit", class="btn")
+
+    h2(data-bind="text: header") Header
+    block 
+        div(data-bind="foreach: users")
+            div.user
+                span
+                    input(type="checkbox", data-bind="checked: active")
+                span(data-bind="text: username")
+                span
+                    input(data-bind="value: email")
+                span(data-bind="text: apikey")
+                span(button(class="btn", data-bind="click: updateUser") Update
+                span(button(class="btn", data-bind="click: deleteUser") Delete
+block scripts
+    script(type='text/javascript', src='/javascripts/client.js');

@@ -1,0 +1,18 @@
+{
+  "name": "auctioneer",
+  "version": "0.0.2",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.1.1",
+    "mongoose": "~3.6.4",
+    "node-uuid": "~1.4.0",
+    "ejs": "~0.8.3"
+  },
+  "subdomain": "carbontax-auctioneer",
+  "engines": {
+    "node": "0.8.x"
+  }
+}

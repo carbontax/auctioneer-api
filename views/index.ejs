@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Auctioneer Admin</title>
+<link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+<style>
+  body { padding-top: 60px; }
+</style>
+<link rel="stylesheet" href="/stylesheets/style.css">
+<link rel="stylesheet" href="/stylesheets/themes/libnotify.css">
+<script type="text/javascript" src="/javascripts/jquery-1.9.1.min.js">
+</script>
+<script type="text/javascript" src="/javascripts/bootstrap.min.js">
+</script>
+<script type="text/javascript" src="/javascripts/knockout-2.2.1.debug.js">
+</script>
+<script type="text/javascript" src="/javascripts/humane.min.js">
+</script>
+</head>
+<body>
+<div id="new-user-form-container">
+  <form data-bind="submit: addUser">
+    <div>
+      <label>Username</label>
+      <input data-bind="value: newUsername">
+    </div>
+    <div>
+      <label>Email</label>
+      <input data-bind="value: newEmail">
+    </div>
+    <div>
+      <input type="submit" class="btn">
+    </div>
+  </form>
+</div>
+<h2 data-bind="text: header">Header</h2>
+<div data-bind="foreach: users">
+  <div class="user">
+    <span>
+      <input type="checkbox" data-bind="checked: active, click: toggleActive">
+    </span>
+    <span data-bind="text: username">
+    </span>
+    <span>
+      <input data-bind="value: email">
+    </span>
+    <span data-bind="text: apikey">
+    </span>
+    <span>
+    </span>
+    <button data-bind="click: updateUser" class="btn">Update</button>
+    <span>
+    </span>
+    <button data-bind="click: deleteUser" class="btn">Delete</button>
+  </div>
+</div>
+<script type="text/javascript" src="/javascripts/client.js">;</script>
+</body>
+</html>
+

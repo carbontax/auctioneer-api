@@ -1,0 +1,16 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.user span {
+    margin-right: 0.25em;
+}
+
+div.user {
+    margin-bottom: 0.5em;
+}
