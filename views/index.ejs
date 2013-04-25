@@ -4,57 +4,56 @@
 <title>Auctioneer Admin</title>
 <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
 <style>
-  body { padding-top: 60px; }
+body { padding-top: 60px; }
 </style>
 <link rel="stylesheet" href="/stylesheets/style.css">
 <link rel="stylesheet" href="/stylesheets/themes/libnotify.css">
-<script type="text/javascript" src="/javascripts/lib/jquery-1.9.1.min.js">
-</script>
-<script type="text/javascript" src="/javascripts/lib/bootstrap.min.js">
-</script>
-<script type="text/javascript" src="/javascripts/lib/knockout-2.2.1.debug.js">
-</script>
-<script type="text/javascript" src="/javascripts/lib/humane.min.js">
-</script>
+<script type="text/javascript" src="/javascripts/lib/jquery-1.9.1.min.js"> </script>
+<script type="text/javascript" src="/javascripts/lib/bootstrap.min.js"> </script>
+<script type="text/javascript" src="/javascripts/lib/knockout-2.2.1.debug.js"> </script>
+<script type="text/javascript" src="/javascripts/lib/humane.min.js"> </script>
 </head>
 <body>
-<div id="new-user-form-container">
-  <form data-bind="submit: addUser">
-    <div>
-      <label>Username</label>
-      <input data-bind="value: newUsername">
-    </div>
-    <div>
-      <label>Email</label>
-      <input data-bind="value: newEmail">
-    </div>
-    <div>
-      <input type="submit" class="btn">
-    </div>
-  </form>
-</div>
 <h2 data-bind="text: header">Header</h2>
-<div data-bind="foreach: users">
-  <div class="user">
-    <span>
+<table id="table user-table">
+  <tr class="user" id="new-user-row">
+    <td></td>
+    <td>
+      <input data-bind="value: newUsername">
+    </td>
+    <td>
+      <input data-bind="value: newEmail">
+    </td>
+    <td>
+      <button class="btn" data-bind="click: addUser">
+        Add User
+      </button>
+    </td>
+  </tr>
+  <!-- ko foreach: users -->
+  <tr class="user-row">
+    <td>
       <input type="checkbox" data-bind="checked: active, click: toggleActive">
-    </span>
-    <span data-bind="text: username">
-    </span>
-    <span>
+    </td>
+    <td data-bind="text: username">
+    </td>
+    <td>
       <input data-bind="value: email">
-    </span>
-    <span data-bind="text: apikey">
-    </span>
-    <span>
-    </span>
-    <button data-bind="click: updateUser" class="btn">Update</button>
-    <span>
-    </span>
-    <button data-bind="click: deleteUser" class="btn">Delete</button>
-  </div>
-</div>
-<script type="text/javascript" src="/javascripts/client.js">;</script>
+    </td>
+    <td>
+      <span><button data-bind="click: updateUser" class="btn">Update</button> </span>
+      <span><button data-bind="click: deleteUser" class="btn">Delete</button> </span>
+    </td>
+  </tr>
+  <tr class="apikey-row">
+    <td>
+    </td>
+    <td class="apikey-cell" colspan="2"><span class="label label-info">API Key:</span> <span class="apikey" data-bind="text: apikey"></span>
+    </td>
+  </tr>
+  <!-- /ko -->
+</table>
+<script type="text/javascript" src="/javascripts/client.js"></script>
 </body>
 </html>
 

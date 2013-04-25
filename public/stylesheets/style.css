@@ -7,10 +7,11 @@ a {
   color: #00B7FF;
 }
 
-.user span {
-    margin-right: 0.25em;
+tr.user-row td {
+  padding-top: 1em;
 }
 
-div.user {
-    margin-bottom: 0.5em;
+tr#new-user-row td {
+  border-bottom: 2px solid #C8C8C8;
+  padding-bottom: 0.25em;
 }

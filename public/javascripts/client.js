@@ -93,6 +93,8 @@ var UserViewModel = function UserViewModel() {
         .done(function(data) {
             var u = new User(data);
             humane.log(u.username() + " was created");
+            self.newUsername("");
+            self.newEmail("");
             self.users.push(u);
         })
         .error(function(xhr) {
