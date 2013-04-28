@@ -37,20 +37,6 @@ User.prototype.updateUser = function updateUser() {
             humane.log(xhr.responseText, humane_err_opts);
         }
     });
-}
-
-User.prototype.deleteUser = function deleteUser() {
-    var url = '/users/' + this.username();
-    $.ajax({
-        url: url,
-        type: 'post',
-        data: { '_method': 'delete' }})
-    .done(function(responseText) {
-        humane.log(responseText);
-    })
-    .error(function(xhr) {
-        humane.log(xhr.responseText, humane_err_opts);
-    });
 };
 
 User.prototype.toggleActive = function toggleActive() {
@@ -62,13 +48,13 @@ User.prototype.toggleActive = function toggleActive() {
         data: {'_method': 'put', 'active': this.active()},
         success: function(responseText) {
             humane.log(responseText);
-            return true;
         },
         error: function(xhr) {
             humane.log(xhr.responseText, humane_err_opts);
-            return false;
         }
     });
+    // allows the UI to receive the updated value
+    return true;
 };
 
 var humane_err_opts = {addnCls: 'humane-error'};
@@ -100,6 +86,21 @@ var UserViewModel = function UserViewModel() {
         .error(function(xhr) {
             humane.log(xhr.responseText, humane_err_opts);
         });
+    };
+
+    self.removeUser = function(user) {
+      var url = '/users/' + user.username();
+      $.ajax({
+          url: url,
+          type: 'post',
+          data: { '_method': 'delete' }})
+      .done(function(responseText) {
+        humane.log(responseText);
+        self.users.remove(user);
+      })
+      .error(function(xhr) {
+          humane.log(xhr.responseText, humane_err_opts);
+      });
     };
 
     $.ajax('/users', {
