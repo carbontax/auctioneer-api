@@ -3,9 +3,6 @@
 <head>
 <title>Auctioneer Admin</title>
 <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
-<style>
-body { padding-top: 60px; }
-</style>
 <link rel="stylesheet" href="/stylesheets/style.css">
 <link rel="stylesheet" href="/stylesheets/themes/libnotify.css">
 <script type="text/javascript" src="/javascripts/lib/jquery-1.9.1.min.js"> </script>
@@ -25,7 +22,9 @@ body { padding-top: 60px; }
       <input data-bind="value: newEmail">
     </td>
     <td>
-      <button class="btn" data-bind="click: addUser">
+        <span class="button-wrapper">
+          <button class="btn" data-bind="click: addUser">
+        </span>
         Add User
       </button>
     </td>
@@ -41,8 +40,8 @@ body { padding-top: 60px; }
       <input data-bind="value: email">
     </td>
     <td>
-      <span><button data-bind="click: updateUser" class="btn">Update</button> </span>
-      <span><button data-bind="click: $root.removeUser" class="btn">Delete</button> </span>
+      <span class="button-wrapper"><button data-bind="click: updateUser" class="btn">Update</button> </span>
+      <span class="button-wrapper"><button data-bind="click: $root.removeUser" class="btn">Delete</button> </span>
     </td>
   </tr>
   <tr class="apikey-row">
